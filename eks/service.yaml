@@ -4,13 +4,15 @@ metadata:
   name: jenkins
   namespace: jenkins
 spec:
-  type: NodePort        # changed from NodePort
+  type: NodePort
   selector:
     app: jenkins
   ports:
     - name: http
       port: 8080
       targetPort: 8080
+      nodePort: 30080     # <-- expose Jenkins UI
     - name: jnlp
       port: 50000
       targetPort: 50000
+      nodePort: 30050     # <-- Jenkins agent port
