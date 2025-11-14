@@ -3,6 +3,8 @@ kind: ServiceAccount
 metadata:
   name: jenkins
   namespace: jenkins
+  annotations:
+    eks.amazonaws.com/role-arn: arn:aws:iam::655445510312:role/eksctl-eks-cluster-addon-iamserviceaccount-je-Role1-0ypBfmLcUnk9
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: Role
