@@ -16,7 +16,7 @@ spec:
       serviceAccountName: jenkins
       containers:
         - name: jenkins
-          image: jenkins/jenkins:lts-jdk17
+          image: jenkins/jenkins:lts-jdk21
           securityContext:
             runAsUser: 0
           ports:
@@ -29,3 +29,4 @@ spec:
         - name: jenkins-home
           persistentVolumeClaim:
             claimName: jenkins-pvc
+
