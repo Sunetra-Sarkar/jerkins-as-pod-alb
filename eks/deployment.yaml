@@ -1,3 +1,4 @@
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -17,11 +18,11 @@ spec:
       containers:
         - name: jenkins
           image: jenkins/jenkins:lts-jdk21
-          securityContext:
-            runAsUser: 0
           ports:
             - containerPort: 8080
             - containerPort: 50000
+          securityContext:
+            runAsUser: 0
           volumeMounts:
             - name: jenkins-home
               mountPath: /var/jenkins_home
@@ -29,4 +30,3 @@ spec:
         - name: jenkins-home
           persistentVolumeClaim:
             claimName: jenkins-pvc
-
